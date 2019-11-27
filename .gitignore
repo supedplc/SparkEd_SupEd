@@ -74,5 +74,5 @@ typings/
 .next
 settings.json
 # config.json
-.deploy/
+# .deploy/
 .vscode/
