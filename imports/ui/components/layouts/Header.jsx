@@ -363,23 +363,13 @@ export class Header extends PureComponent {
                       />
                     </div>
                     <div id="dropdown1" className="dropdown-content">
-                      {/* <li className="collection-header">
-                    </li> */}
+
                       <h6 className="center">External links</h6>
                       <ul className="collection">
                         <ExternalLinksView externallinks={externallinks} />
                       </ul>
                     </div>
-                    {/* <div className="col s2 m1 head-icons tooltipped "
-                      data-position="bottom"
-                      data-tooltip="User settings and info"
-                    >
-                      <span
-                        data-target="slide-out"
-                        id="usrIcon"
-                        className="white-text sidenav-trigger fa fa-user fa-2x"
-                      />
-                    </div> */}
+
                   </div>
                 </div>
               </div>
