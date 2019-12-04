@@ -112,16 +112,18 @@ class UserInfo extends PureComponent {
                 error={error}
               />
             </MainModal>
+
             <ul
               id="slide-out"
               className="sidenav"
               style={{
                 backgroundColor: state.isDark ? state.mainDark : '#ffffff',
+                color: state.isDark ? '#ffffff' : '#000000',
               }}
             >
-              <li>
-                {
-                  user ?
+              {
+                user ?
+                  <Fragment>
                     <li id="dropBody">
                       <div id="accName">
                         {`${user.profile.name} `}
@@ -145,45 +147,50 @@ class UserInfo extends PureComponent {
                         </span>
                       </div>
                     </li>
-                    : null
-                }
-              </li>
-              {Meteor.userId() && isVisible ? (
-                <li>
-                  <ChangePassword />
-                </li>
-              ) : null}
-              <br />
-              <br />
-              <li>
-                <Languages />
-              </li>
-              <li>
-                <div id="accName">
-                  {Roles.userIsInRole(Meteor.userId(), [
-                    'admin',
-                    'content-manager',
-                  ]) ? (
-                      <a href="" onClick={takeToDashboard}>
-                        Dashboard
+                    {Meteor.userId() && isVisible ? (
+                      <li>
+                        <ChangePassword />
+                      </li>
+                    ) : null}
+                    <br />
+                    <br />
+                    <li>
+                      <Languages />
+                    </li>
+                    <li>
+                      <div id="accName">
+                        {Roles.userIsInRole(Meteor.userId(), [
+                          'admin',
+                          'content-manager',
+                        ]) ? (
+                            <a href="" onClick={takeToDashboard}>
+                              Dashboard
                       </a>
-                    ) : (
-                      <span />
-                    )}
-                </div>
-              </li>
-              <li id="dropBody">
-                <div id="accName">
-                  <a
-                    href=""
-                    onClick={() => FlowRouter.go('/login')}
-                  >
-                    You are not Logged in
+                          ) : (
+                            <span />
+                          )}
+                      </div>
+                    </li>
+                  </Fragment>
+                  :
+                  <li id="dropBody">
+                    <div id="accName">
+                      <a
+                        href=""
+                        onClick={() => FlowRouter.go('/login')}
+                      >
+                        You are not Logged in
                     </a>
-                </div>
-              </li>
+                    </div>
+                  </li>
+
+              }
               <li>
-                <div className="switch">
+                <div className="switch"
+                  style={{
+                    marginLeft: '3.5em',
+                  }}
+                >
                   <label>
                     Day Mode
                   <input
@@ -194,83 +201,8 @@ class UserInfo extends PureComponent {
                     <span className="lever" />
                     Night Mode
                 </label>
-                </div> */}
+                </div>
               </li>
-              {/*
-                 {user ? (
-                <Fragment>
-                  <li id="dropBody">
-                    <div id="accName">
-                      {`${user.profile.name} `}
-                      <span id="userEmail">{user.emails[0].address}</span>
-                      <span id="uiWrapper">
-                        <button className="btn" onClick={logUserOut}>
-                          <T>common.accounts.Logout</T>
-                        </button>
-                      </span>
-                      <span id="uiWrapper">
-                        <button
-                          className="btn teal"
-                          onClick={() =>
-                            this.setState(prevState => ({
-                              isOpen: !prevState.isOpen,
-                            }))
-                          }
-                        >
-                          Change Password
-                        </button>
-                      </span>
-                    </div>
-                  </li>
-
-                  {Meteor.userId() && isVisible ? (
-                    <li>
-                      <ChangePassword />
-                    </li>
-                  ) : null}
-
-                  <br />
-                  <br />
-                  <li>
-                    <Languages />
-                  </li>
-                  <li>
-                    {Roles.userIsInRole(Meteor.userId(), [
-                      'admin',
-                      'content-manager',
-                    ]) ? (
-                      <button className="btn teal" onClick={takeToDashboard}>
-                        Dashboard
-                      </button>
-                    ) : (
-                      <span />
-                    )}
-                  </li>
-                </Fragment>
-              ) : (
-                <li id="dropBody">
-                  <div id="accName">
-                    <button
-                      className="btn teal"
-                      onClick={() => FlowRouter.go('/login')}
-                    >
-                      You are not Logged in
-                    </button>
-                  </div>
-                </li>
-              )}
-              <div className="switch">
-                <label>
-                  Day Mode
-                  <input
-                    type="checkbox"
-                    onChange={this.props.handleNightMode}
-                    checked={this.props.checked}
-                  />
-                  <span className="lever" />
-                  Night Mode
-                </label>
-              </div> */}
             </ul>
           </div>
         )}
