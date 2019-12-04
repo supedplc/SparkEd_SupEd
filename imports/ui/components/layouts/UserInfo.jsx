@@ -119,7 +119,85 @@ class UserInfo extends PureComponent {
                 backgroundColor: state.isDark ? state.mainDark : '#ffffff',
               }}
             >
-              {user ? (
+              <li>
+                {
+                  user ?
+                    <li id="dropBody">
+                      <div id="accName">
+                        {`${user.profile.name} `}
+                        <span id="userEmail">{user.emails[0].address}</span>
+                        <span id="uiWrapper">
+                          <a href="" onClick={logUserOut}>
+                            <T>common.accounts.Logout</T>
+                          </a>
+                        </span>
+                        <span id="uiWrapper">
+                          <a
+                            href=""
+                            onClick={() =>
+                              this.setState(prevState => ({
+                                isOpen: !prevState.isOpen,
+                              }))
+                            }
+                          >
+                            Change Password
+                        </a>
+                        </span>
+                      </div>
+                    </li>
+                    : null
+                }
+              </li>
+              {Meteor.userId() && isVisible ? (
+                <li>
+                  <ChangePassword />
+                </li>
+              ) : null}
+              <br />
+              <br />
+              <li>
+                <Languages />
+              </li>
+              <li>
+                <div id="accName">
+                  {Roles.userIsInRole(Meteor.userId(), [
+                    'admin',
+                    'content-manager',
+                  ]) ? (
+                      <a href="" onClick={takeToDashboard}>
+                        Dashboard
+                      </a>
+                    ) : (
+                      <span />
+                    )}
+                </div>
+              </li>
+              <li id="dropBody">
+                <div id="accName">
+                  <a
+                    href=""
+                    onClick={() => FlowRouter.go('/login')}
+                  >
+                    You are not Logged in
+                    </a>
+                </div>
+              </li>
+              <li>
+                <div className="switch">
+                  <label>
+                    Day Mode
+                  <input
+                      type="checkbox"
+                      onChange={this.props.handleNightMode}
+                      checked={this.props.checked}
+                    />
+                    <span className="lever" />
+                    Night Mode
+                </label>
+                </div> */}
+              </li>
+              {/*
+                 {user ? (
                 <Fragment>
                   <li id="dropBody">
                     <div id="accName">
@@ -144,6 +222,7 @@ class UserInfo extends PureComponent {
                       </span>
                     </div>
                   </li>
+
                   {Meteor.userId() && isVisible ? (
                     <li>
                       <ChangePassword />
@@ -191,7 +270,7 @@ class UserInfo extends PureComponent {
                   <span className="lever" />
                   Night Mode
                 </label>
-              </div>
+              </div> */}
             </ul>
           </div>
         )}
