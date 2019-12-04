@@ -272,7 +272,20 @@ export class Header extends PureComponent {
               }}
             >
               <div className="row ">
+                <div className="col s2 m1"
+                  style={{
+                    marginTop: 19,
+                  }}
+                >
+
+                  <span
+                    data-target="slide-out"
+                    id="usrIcon"
+                    className="white-text sidenav-trigger fa fa-bars fa-2x"
+                  />
+                </div>
                 <div className="col s12 m5">
+
                   <InstitutionDetail
                     institution={institution}
                     name={details.name}
@@ -289,8 +302,6 @@ export class Header extends PureComponent {
                     />
                   </div>
                   <div className="row"
-
-
                   >
                     {Meteor.userId() && (
                       <div className="col s2 m1 head-icons ">
@@ -354,7 +365,7 @@ export class Header extends PureComponent {
                         <ExternalLinksView externallinks={externallinks} />
                       </ul>
                     </div>
-                    <div className="col s2 m1 head-icons tooltipped "
+                    {/* <div className="col s2 m1 head-icons tooltipped "
                       data-position="bottom"
                       data-tooltip="User settings and info"
                     >
@@ -363,7 +374,7 @@ export class Header extends PureComponent {
                         id="usrIcon"
                         className="white-text sidenav-trigger fa fa-user fa-2x"
                       />
-                    </div>
+                    </div> */}
                   </div>
                 </div>
               </div>
