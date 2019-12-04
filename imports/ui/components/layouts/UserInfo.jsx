@@ -129,7 +129,12 @@ class UserInfo extends PureComponent {
                         {`${user.profile.name} `}
                         <span id="userEmail">{user.emails[0].address}</span>
                         <span id="uiWrapper">
-                          <a href="" onClick={logUserOut}>
+                          <a href=""
+                            onClick={logUserOut}
+                            className="tooltipped"
+                            data-position="bottom"
+                            data-tooltip="Click here to logout">
+
                             <T>common.accounts.Logout</T>
                           </a>
                         </span>
@@ -141,20 +146,28 @@ class UserInfo extends PureComponent {
                                 isOpen: !prevState.isOpen,
                               }))
                             }
-                          >
+                            className="tooltipped"
+                            data-position="bottom"
+                            data-tooltip="Click here to change your password">
+
                             Change Password
                         </a>
                         </span>
                       </div>
                     </li>
                     {Meteor.userId() && isVisible ? (
-                      <li>
+                      <li
+                      >
                         <ChangePassword />
                       </li>
                     ) : null}
                     <br />
                     <br />
-                    <li>
+                    <li
+                      className="tooltipped"
+                      data-position="bottom"
+                      data-tooltip="Click here to change the language"
+                    >
                       <Languages />
                     </li>
                     <li>
@@ -163,9 +176,13 @@ class UserInfo extends PureComponent {
                           'admin',
                           'content-manager',
                         ]) ? (
-                            <a href="" onClick={takeToDashboard}>
+                            <a href=""
+                              className="tooltipped"
+                              data-position="bottom"
+                              data-tooltip="Click here to go to dashboard"
+                              onClick={takeToDashboard}>
                               Dashboard
-                      </a>
+                            </a>
                           ) : (
                             <span />
                           )}
@@ -178,6 +195,9 @@ class UserInfo extends PureComponent {
                       <a
                         href=""
                         onClick={() => FlowRouter.go('/login')}
+                        className="tooltipped"
+                        data-position="bottom"
+                        data-tooltip="Click here to login"
                       >
                         You are not Logged in
                     </a>
@@ -186,7 +206,9 @@ class UserInfo extends PureComponent {
 
               }
               <li>
-                <div className="switch"
+                <div className="switch tooltipped"
+                  data-position="bottom"
+                  data-tooltip="Change SparkEd theme"
                   style={{
                     marginLeft: '3.5em',
                   }}
