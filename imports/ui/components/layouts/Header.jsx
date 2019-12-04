@@ -272,10 +272,12 @@ export class Header extends PureComponent {
               }}
             >
               <div className="row ">
-                <div className="col s2 m1"
+                <div className="col s2 m1 tooltipped"
                   style={{
                     marginTop: 19,
                   }}
+                  data-position="bottom"
+                  data-tooltip="Open menu"
                 >
 
                   <span
@@ -293,7 +295,10 @@ export class Header extends PureComponent {
                   />
                 </div>
                 <div className="m6 offset-m6">
-                  <div className="col s12 m2 ">
+                  <div className="col s12 m2 tooltipped "
+                    data-position="bottom"
+                    data-tooltip="Type your search query here"
+                  >
                     <SearchView
                       action={'/results'}
                       placeholder={'search here '}

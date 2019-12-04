@@ -28,6 +28,9 @@ export class SearchView extends Component {
         <div className="row">
           <input
             className={`col input ${this.props.sClass}`}
+            style={{
+              marginRight: 50
+            }}
             name={"g_search"}
             type="search"
             defaultValue={this.getQuery()}
@@ -300,66 +303,66 @@ export class FloatingButton extends PureComponent {
                 </div>
               </Fragment>
             ) : (
-              <Fragment>
-                <div className="row">
-                  <div className="input-field col s12">
-                    <span className="c-grey">Title</span>
-                    <input
-                      id="bmk-title"
-                      maxLength="50"
-                      type="text"
-                      className="clear validate"
-                      placeholder="Title"
-                      required
-                      onChange={e => this.grabText(e, "bookTitle")}
-                    />
-                    <input
-                      type="color"
-                      defaultValue="#008000"
-                      onClick={this.setColor.bind(this, "#008000")}
-                      id="bmk-color-green"
-                    />
-                    <input
-                      type="color"
-                      defaultValue="#ffeb3b"
-                      onClick={this.setColor.bind(this, "#ffeb3b")}
-                      id="bmk-color-yellow"
-                    />
-                    <input
-                      type="color"
-                      defaultValue="#f44336"
-                      onClick={this.setColor.bind(this, "#f44336")}
-                      id="bmk-color-red"
-                    />
-                    <input
-                      type="color"
-                      defaultValue="#9c27b0"
-                      onClick={this.setColor.bind(this, "#9c27b0")}
-                      id="bmk-color-purple"
-                    />
-                    <input
-                      type="hidden"
-                      defaultValue="#9c27b0"
-                      disabled
-                      id="bmk-color"
-                    />
+                <Fragment>
+                  <div className="row">
+                    <div className="input-field col s12">
+                      <span className="c-grey">Title</span>
+                      <input
+                        id="bmk-title"
+                        maxLength="50"
+                        type="text"
+                        className="clear validate"
+                        placeholder="Title"
+                        required
+                        onChange={e => this.grabText(e, "bookTitle")}
+                      />
+                      <input
+                        type="color"
+                        defaultValue="#008000"
+                        onClick={this.setColor.bind(this, "#008000")}
+                        id="bmk-color-green"
+                      />
+                      <input
+                        type="color"
+                        defaultValue="#ffeb3b"
+                        onClick={this.setColor.bind(this, "#ffeb3b")}
+                        id="bmk-color-yellow"
+                      />
+                      <input
+                        type="color"
+                        defaultValue="#f44336"
+                        onClick={this.setColor.bind(this, "#f44336")}
+                        id="bmk-color-red"
+                      />
+                      <input
+                        type="color"
+                        defaultValue="#9c27b0"
+                        onClick={this.setColor.bind(this, "#9c27b0")}
+                        id="bmk-color-purple"
+                      />
+                      <input
+                        type="hidden"
+                        defaultValue="#9c27b0"
+                        disabled
+                        id="bmk-color"
+                      />
+                    </div>
                   </div>
-                </div>
-                <div className="row">
-                  <div className="input-field col s12">
-                    <span className="c-grey">Short Description</span>
+                  <div className="row">
+                    <div className="input-field col s12">
+                      <span className="c-grey">Short Description</span>
 
-                    <textarea
-                      id="bmk-description"
-                      className="clear materialize-textarea"
-                      maxLength="70"
-                      placeholder="short description"
-                      onChange={e => this.grabText(e, "bookDesc")}
-                    />
+                      <textarea
+                        id="bmk-description"
+                        className="clear materialize-textarea"
+                        maxLength="70"
+                        placeholder="short description"
+                        onChange={e => this.grabText(e, "bookDesc")}
+                      />
+                    </div>
                   </div>
-                </div>
-              </Fragment>
-            )}
+                </Fragment>
+              )}
           </div>
         </MainModal>
 
